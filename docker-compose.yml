@@ -1,18 +1,29 @@
 version: "3.9"
 
 services:
+# Each service = one container type
   backend:
+  # Logical service name:Internal DNS name ->http://backend:5000
     build: ./backend
+
+    # Go to ./backend -> folder 
     container_name: becontainer
     ports:
       - "5000:5000"
     restart: always
+    # If container crashes → Docker restarts it
 
   frontend:
+  # Another service → another container.
     build: ./frontend
     container_name: fecontainer
     ports:
       - "8000:5173"
     depends_on:
       - backend
+      # Start backend before frontend ->It does NOT wait until backend is ready (Only ensures start order)
     restart: always
+
+
+
+# docker-compose up   -> run command to start both containers
