@@ -14,5 +14,5 @@ COPY . .
 EXPOSE 5173
 # It only documents:“This container uses port 5000”
 
-CMD ["npm","start"]
+CMD ["npm","run","dev"]
 # This is the command that runs when container starts

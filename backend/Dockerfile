@@ -11,7 +11,7 @@ COPY . .
 
 # Copies all project files to container
 
-
+EXPOSE 5000
 # It only documents:“This container uses port 5000”
 
 CMD ["node","server.js"]
